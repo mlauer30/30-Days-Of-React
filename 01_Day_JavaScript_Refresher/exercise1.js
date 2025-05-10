@@ -24,6 +24,7 @@ console.groupEnd();
 //4.
 console.log("question #4");
 console.group();
+console.log("hello dad!");
 console.log("first element -> %s", stuff[0]);
 console.log("middle element -> %s", stuff[Math.floor(stuff.length / 2)]);
 console.log("last element -> %s", stuff[stuff.length - 1]);
