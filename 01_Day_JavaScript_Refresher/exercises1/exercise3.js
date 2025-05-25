@@ -152,6 +152,7 @@ midCountries = middleCountries( newCountries );
 console.log("(Question 4) -- example where countries array is even...", 
     midCountries[0], midCountries[1]);
 
+//changes
 
 
 
