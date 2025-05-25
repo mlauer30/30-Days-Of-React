@@ -42,14 +42,8 @@ console.log(
 */
 
 Dog = {
-    name: "Beethoven",
-    legs: 4,
-    color: "Brown",
-    age: 6,
+    ...Dog,
     breed: "St. Bernard",
-    bark: function() {
-        return "ruff ruff!";
-    }, 
     getDogInfo: function() {
         return `   Dog name: ${this.name} 
     Number of Legs: ${this.legs}
