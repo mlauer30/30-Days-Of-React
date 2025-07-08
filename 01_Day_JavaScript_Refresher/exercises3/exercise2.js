@@ -74,7 +74,7 @@ console.log(mostSkills(users));
 function statsCounter( obj ) {
     let loginCount = 0;
     let pointCount = 0;
-    for (let [key, value] of Object.entries(obj)) {
+    for (let value of Object.values(obj)) {
         if( value.isLoggedIn ){
             loginCount++;
         }
@@ -150,7 +150,7 @@ let countries = {
 }
 function getCountryValues( obj, country ) {
     let countryData = {};
-    for(let [key, value] of Object.entries(obj)) {
+    for(let value of Object.values(obj)) {
         if(value.name === country) {
             countryData = value;
         }
