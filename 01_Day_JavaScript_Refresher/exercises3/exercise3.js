@@ -1,37 +1,80 @@
 /*
 1. Create an object literal called _personAccount_. It has _firstName, lastName, 
-incomes, expenses_ properties and it has _totalIncome, totalExpense, accountInfo,
+incomes, expenses_ properties 
 */
 
 let personAccount = {
     firstName: "Matthew",
     lastName: "Lauer",
-    incomes: {
-        income: 0.00,
-        description: "Matthew is making no money...",
+    incomes: [
+        { income: 1.00, description: "odd job cleaning car windows at a busy commuter intersection" },
+        { income: 2.00, description: "tip from delivering a pizza as a bike courier"}
+    ],
+    expenses: [
+        { expense: 100.00, description: "expense for bulk order of cycling gels, smh..." },
+        { expense: 60.00, description: "expense for bike fit, smh..." },
+    ],
+
+    //sum of all incomes
+    totalIncome: function(){ 
+        let total = 0;
+        for(let income of this.incomes){
+            total += income.income; 
+        }
+        return total;
     },
-    expenses: {
-        expense: 100.00,
-        description: "How is Matthew paying for things without an income?",
+
+    //sum of all expenses
+    totalExpense: function(){ 
+        let total = 0;
+        for(let expense of this.expenses) {
+            total += expense.expense;
+        }
+        return total;
     },
-    properties: 0,
-    totalIncome: 0.00,
-    totalExpense: 100.00,
-    accountInfo: "Matthew makes $0.00 with $100.00 of expenses",
+
+    //gets first and last name, total income and expenses, and overall account balance
+    accountInfo: function(){ 
+        return `
+            First name: ${this.firstName}
+            Last name: ${this.lastName}
+            Total income: ${this.totalIncome()}
+            Total expenses: ${this.totalExpense()}
+            Account balance: ${this.accountBalance()}
+        `;
+    },
+
     /*
-     * addIncome, addExpense_ and _accountBalance_ methods. Incomes is a set of incomes 
-     * and its description and expenses is a set of incomes and its description.
+     * and it has _totalIncome, totalExpense, accountInfo, addIncome, addExpense_ and 
+     * _accountBalance_ methods. Incomes is a set of incomes and its description and expenses 
+     * is a set of incomes and its description.
      */
-    addIncome: function() {
 
+    //creates new income and description to expenses array
+    addIncome: function(income) { 
+        this.incomes = [
+            ...this.incomes, 
+            income
+        ];        
     },
-    addExpense: function() {
 
+    //creates new expense entry and description to expenses array
+    addExpense: function(expense) { 
+        this.expenses = [
+            ...this.expenses, 
+            expense
+        ];
     },
-    accountBalance: ,
+    accountBalance: function(){
+       return this.totalIncome() - this.totalExpense(); 
+    },
 
 };
 
+personAccount.addIncome({ income: 200, description: "luck day in atlantic city" });
+personAccount.addExpense({ expense: 1, description: "slice of pizza 🍕" });
+personAccount.addExpense({ expense: 500, description: "crashing bike into a car and found at fault" });
+console.log(personAccount.accountInfo());
 /*
 */
 
