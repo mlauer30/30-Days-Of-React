@@ -75,13 +75,12 @@ personAccount.addIncome({ income: 200, description: "luck day in atlantic city" 
 personAccount.addExpense({ expense: 1, description: "slice of pizza 🍕" });
 personAccount.addExpense({ expense: 500, description: "crashing bike into a car and found at fault" });
 console.log(personAccount.accountInfo());
+
 /*
+2. Questions: 2, 3 and 4 are based on the following two arrays:users and products 
 */
 
-/*
-2. \*\*\*\* Questions:2, 3 and 4 are based on the following two arrays:users and products ()
-
-```js
+//js
 const users = [
   {
     _id: 'ab12ex',
@@ -154,11 +153,17 @@ const products = [
     likes: ['fg12cy'],
   },
 ]
-```
 
-Imagine you are getting the above users collection from a MongoDB database.
-a. Create a function called signUp which allows user to add to the collection. If user exists, inform the user that he has already an account.  
- b. Create a function called signIn which allows user to sign in to the application
+/*
+2.  Imagine you are getting the above users collection from a MongoDB database.
+    a. Create a function called signUp which allows user to add to the collection. If user exists, inform the 
+        user that he has already an account. 
+*/
+
+    function signUp(){};
+
+/*
+    b. Create a function called signIn which allows user to sign in to the application
 
 3. The products array has three elements and each of them has six properties.
    a. Create a function called rateProduct which rates the product
