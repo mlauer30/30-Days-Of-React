@@ -54,7 +54,7 @@ let personAccount = {
     addIncome: function(income) { 
         this.incomes = [
             ...this.incomes, 
-            income
+            income,
         ];        
     },
 
@@ -62,7 +62,7 @@ let personAccount = {
     addExpense: function(expense) { 
         this.expenses = [
             ...this.expenses, 
-            expense
+            expense,
         ];
     },
     accountBalance: function(){
@@ -160,7 +160,44 @@ const products = [
         user that he has already an account. 
 */
 
-    function signUp(){};
+/**
+ * 
+ * For future reference, use the some() or find() functions for more readably checking whether
+ * an object contains a certain value. 
+ *
+ * signUp is only written this way to remain in scope for this course's section. The find() and some()
+ * methods appear later in the functional programming unit.
+ *
+ */
+    function signUp(users, user){
+        for(let value of Object.values(users)){
+            if(value._id == user._id) {
+                console.log("The user you are trying to create already exists.");
+                return;
+            }
+        }
+        users.push(user);
+    };
+    
+    signUp(users, {
+        _id: '90opLw', 
+        username: 'Matt',
+        email: 'matthew@yahoo.com',
+        password: '123534',
+        createdAt: '07/15/2025 10:00 AM',
+        isLoggedIn: true,
+    });
+    
+    signUp(users, {
+        _id: 'eefamr',
+        username: 'Martha',
+        email: 'martha@martha.com',
+        password: '123222',
+        createdAt: '08/01/2020 9:50 AM',
+        isLoggedIn: false,
+    });
+
+console.log(users);
 
 /*
     b. Create a function called signIn which allows user to sign in to the application
