@@ -71,6 +71,11 @@ console.log(mostSkills(users));
 1. Count logged in users,count users having greater than equal to 50 points from the following object.
 */
 
+/**
+ *
+ * Object.values() vs Object.entries() 
+ *
+ */
 function statsCounter( obj ) {
     let loginCount = 0;
     let pointCount = 0;
