@@ -38,6 +38,7 @@ let personAccount = {
         return `
             First name: ${this.firstName}
             Last name: ${this.lastName}
+            Transactions: ${this.transactions()}
             Total income: ${this.totalIncome()}
             Total expenses: ${this.totalExpense()}
             Account balance: ${this.accountBalance()}
@@ -65,15 +66,38 @@ let personAccount = {
             expense,
         ];
     },
+    transactions: function(){
+        const incomes = this.incomes.map((income) =>`
+            income: ${income.income} 
+            description: ${income.description}
+        `);
+        const expenses = this.expenses.map((expense) => `
+            expense: ${expense.expense}
+            description: ${expense.description}
+        `);
+
+        const output = incomes.concat(expenses); 
+        return output.join(''); 
+    },
+
     accountBalance: function(){
        return this.totalIncome() - this.totalExpense(); 
     },
 
 };
 
-personAccount.addIncome({ income: 200, description: "luck day in atlantic city" });
-personAccount.addExpense({ expense: 1, description: "slice of pizza 🍕" });
-personAccount.addExpense({ expense: 500, description: "crashing bike into a car and found at fault" });
+personAccount.addIncome({ 
+    income: 200, 
+    description: "luck day in atlantic city" 
+});
+personAccount.addExpense({ 
+    expense: 1, 
+    description: "slice of pizza 🍕" 
+});
+personAccount.addExpense({ 
+    expense: 500, 
+    description: "crashing bike into a car and found at fault" 
+});
 console.log(personAccount.accountInfo());
 
 /*
@@ -185,7 +209,7 @@ const products = [
         email: 'matthew@yahoo.com',
         password: '123534',
         createdAt: '07/15/2025 10:00 AM',
-        isLoggedIn: true,
+        isLoggedIn: false,
     });
     
     signUp(users, {
@@ -196,15 +220,37 @@ const products = [
         createdAt: '08/01/2020 9:50 AM',
         isLoggedIn: false,
     });
-
+    
 console.log(users);
 
 /*
     b. Create a function called signIn which allows user to sign in to the application
+*/
 
+function signIn(username, password) {
+    for (let value of Object.values(users)) {
+        if (value.username == username && value.password == password) {
+            value.isLoggedIn = true;
+            console.log('%s is logged in: %s', username, value.isLoggedIn);
+        }
+    }
+}
+
+signIn('Matt','123534');
+
+/*
 3. The products array has three elements and each of them has six properties.
    a. Create a function called rateProduct which rates the product
-   b. Create a function called averageRating which calculate the average rating of a product
+*/
 
+
+
+/*
+   b. Create a function called averageRating which calculate the average rating of a product
+*/
+
+
+
+/*
 4. Create a function called likeProduct. This function will helps to like to the product if it is not liked and remove like if it was liked.
 */
